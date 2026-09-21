@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+    - Migrate from List::MoreUtils to List::SomeUtils
+
     - Remove unused variables etc #gh69 thanks to Steve Rogerson @yewtc
 
 2.08      2021-01-15 10:16:00+00:00 UTC

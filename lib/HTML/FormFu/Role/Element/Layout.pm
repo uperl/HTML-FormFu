@@ -7,7 +7,7 @@ use Moose::Role;
 use MooseX::Attribute::Chained;
 
 use Carp qw( carp croak );
-use List::MoreUtils qw( first_index );
+use List::SomeUtils qw( first_index );
 use Scalar::Util qw( reftype );
 
 use HTML::FormFu::Util qw( process_attrs );
