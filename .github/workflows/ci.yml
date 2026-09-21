@@ -14,7 +14,7 @@
   jobs:
     build-job:
       name: Build distribution
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-latest
       container:
         image: perldocker/perl-tester:5.34
       steps:
@@ -33,7 +33,7 @@
           if: ${{ github.actor != 'nektos/act' }}
     coverage-job:
       needs: build-job
-      runs-on: ubuntu-20.04
+      runs-on: ubuntu-latest
       container:
         image: perldocker/perl-tester:5.34
       steps:
