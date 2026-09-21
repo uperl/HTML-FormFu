@@ -2,6 +2,11 @@
 
     - Migrate from List::MoreUtils to List::SomeUtils
 
+    - Fix CVE-2026-19873: bound the Repeatable element's counter_name
+      query parameter with a new max_counter (and form-level
+      repeatable_max_counter) attribute, defaulting to 100, to prevent
+      a CPU/memory DoS from an unauthenticated request #gh71
+
     - Remove unused variables etc #gh69 thanks to Steve Rogerson @yewtc
 
 2.08      2021-01-15 10:16:00+00:00 UTC
