@@ -65,7 +65,7 @@ sub name {
 
     if ( @_ > 1 ) {
 
-        if ( $name =~ /[\.\[\]]/ ) {
+        if ( defined $name && $name =~ /[\.\[\]]/ ) {
             croak <<'ERROR_MESSAGE';
 element names may not contain periods or square brackets
 see documentation on nested_names() for details

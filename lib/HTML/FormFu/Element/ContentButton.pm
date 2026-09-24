@@ -46,10 +46,13 @@ sub _string_field {
 
     # content_button template
 
-    my $html .= sprintf qq{<button name="%s" type="%s"},
-        $render->{nested_name},
-        $render->{field_type},
-        ;
+    my $html = "<button";
+
+    if ( defined $render->{nested_name} ) {
+        $html .= sprintf qq{ name="%s"}, $render->{nested_name};
+    }
+
+    $html .= sprintf qq{ type="%s"}, $render->{field_type};
 
     if ( defined $render->{value} ) {
         $html .= sprintf qq{ value="%s"}, $render->{value};

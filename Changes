@@ -1,5 +1,12 @@
 {{$NEXT}}
 
+    - Fields without a name no longer emit "Use of uninitialized value"
+      warnings when a form is processed or rendered: an unnamed Submit or
+      Button with a value triggered one via force_default, and the Select,
+      Textarea, Checkboxgroup, Radiogroup, ContentButton and Date string
+      renderers emitted name="" with a warning. The name attribute is now
+      omitted, matching the other Input elements. RT#106557
+
     - Migrate from List::MoreUtils to List::SomeUtils
 
     - Fix CVE-2026-19873: bound the Repeatable element's counter_name
