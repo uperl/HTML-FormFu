@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+2.09      2026-09-24 07:04:31-06:00 America/Denver
+
     - Constraint when() with not(1) now applies the constraint when the
       named field is missing from the submission, such as an unchecked
       Checkbox. Previously a missing field caused the constraint to be
