@@ -7,6 +7,8 @@
       renderers emitted name="" with a warning. The name attribute is now
       omitted, matching the other Input elements. RT#106557
 
+    - New github org: uperl
+
     - Migrate from List::MoreUtils to List::SomeUtils
 
     - Fix CVE-2026-19873: bound the Repeatable element's counter_name
