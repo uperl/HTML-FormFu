@@ -381,12 +381,12 @@ sub _build_number_list {
 sub _build_name {
     my ( $self, $type ) = @_;
 
-    my $name
-        = defined $self->$type->{name}
-        ? $self->$type->{name}
-        : sprintf "%s_%s", $self->name, $type;
+    return $self->$type->{name} if defined $self->$type->{name};
 
-    return $name;
+    # a Date element without a name has unnamed sub-fields
+    return if !defined $self->name;
+
+    return sprintf "%s_%s", $self->name, $type;
 }
 
 sub _add_inflator {
@@ -436,6 +436,10 @@ sub process {
 
 sub process_input {
     my ( $self, $input ) = @_;
+
+    # a Date element without a name has no input to combine
+    return $self->SUPER::process_input($input)
+        if !defined $self->nested_name;
 
     my %value;
 

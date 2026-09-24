@@ -1,5 +1,24 @@
 {{$NEXT}}
 
+    - Constraint when() with not(1) now applies the constraint when the
+      named field is missing from the submission, such as an unchecked
+      Checkbox. Previously a missing field caused the constraint to be
+      skipped regardless of not(), so default_empty_value was needed on
+      the Checkbox. RT#45409
+
+    - Behaviour change: Constraint when() with fields() now requires
+      every named field to be present and match. Previously a missing
+      field was silently ignored.
+
+    - Fields without a name no longer emit "Use of uninitialized value"
+      warnings when a form is processed or rendered: an unnamed Submit or
+      Button with a value triggered one via force_default, and the Select,
+      Textarea, Checkboxgroup, Radiogroup, ContentButton and Date string
+      renderers emitted name="" with a warning. The name attribute is now
+      omitted, matching the other Input elements. RT#106557
+
+    - New github org: uperl
+
     - Migrate from List::MoreUtils to List::SomeUtils
 
     - Fix CVE-2026-19873: bound the Repeatable element's counter_name

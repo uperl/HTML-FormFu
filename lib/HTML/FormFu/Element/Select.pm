@@ -62,9 +62,13 @@ sub _string_field {
 
     # select_tag template
 
-    my $html .= sprintf qq{<select name="%s"%s>\n},
-        $render->{nested_name},
-        process_attrs( $render->{attributes} );
+    my $html = "<select";
+
+    if ( defined $render->{nested_name} ) {
+        $html .= sprintf qq{ name="%s"}, $render->{nested_name};
+    }
+
+    $html .= sprintf "%s>\n", process_attrs( $render->{attributes} );
 
     for my $option ( @{ $render->{options} } ) {
         if ( exists $option->{group} ) {

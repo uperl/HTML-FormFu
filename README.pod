@@ -2,6 +2,14 @@
 
 =encoding UTF-8
 
+=head1 NAME
+
+HTML::FormFu - HTML Form Creation, Rendering and Validation Framework
+
+=head1 VERSION
+
+version 2.08
+
 =head1 SYNOPSIS
 
 Note: These examples make use of L<HTML::FormFu::Model::DBIC>. As of
@@ -267,6 +275,19 @@ used as the return value for L</submitted>.
 
 If L</indicator> is not set, L</submitted> will return true if a value for
 any known fieldname was submitted.
+
+=head2 repeatable_max_counter
+
+Arguments: $number
+
+Default Value: C<100>
+
+The default L<max_counter|HTML::FormFu::Element::Repeatable/max_counter>
+for all L<Repeatable|HTML::FormFu::Element::Repeatable> elements in this
+form. Individual Repeatable elements can override this by setting their own
+L<max_counter|HTML::FormFu::Element::Repeatable/max_counter>.
+
+Set to C<0> to disable clamping form-wide.
 
 =head2 auto_fieldset
 
@@ -1999,7 +2020,7 @@ Carl Franks <cpan@fireartist.com>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2018 by Carl Franks.
+This software is copyright (c) 2026, 2018, 2016, 2015, 2012, 2011 by Carl Franks.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

@@ -386,6 +386,9 @@ sub process_input {
     my $original  = $self->value;
     my $name      = $self->nested_name;
 
+    # a field without a name has no input to process
+    return if !defined $name;
+
     # set input to default value (defined before calling FormFu->process)
     if ( $submitted && $self->force_default && defined $default ) {
         $self->set_nested_hash_value( $input, $name, $default );

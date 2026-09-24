@@ -150,6 +150,11 @@ sub _string_field {
 
     # radiogroup_tag template
 
+    my $name_attr
+        = defined $render->{nested_name}
+        ? sprintf( qq{ name="%s"}, $render->{nested_name} )
+        : q{};
+
     my $html .= sprintf "<span%s>\n", process_attrs( $render->{attributes} );
 
     for my $option ( @{ $render->{options} } ) {
@@ -174,8 +179,8 @@ sub _string_field {
                     ;
 
                 my $input = sprintf
-                    qq{<input name="%s" type="%s" value="%s"%s />\n},
-                    $render->{nested_name},
+                    qq{<input%s type="%s" value="%s"%s />\n},
+                    $name_attr,
                     $render->{input_type},
                     $item->{value},
                     process_attrs( $item->{attributes} ),
@@ -205,8 +210,8 @@ sub _string_field {
                 ;
 
             my $input = sprintf
-                qq{<input name="%s" type="%s" value="%s"%s />\n},
-                $render->{nested_name},
+                qq{<input%s type="%s" value="%s"%s />\n},
+                $name_attr,
                 $render->{input_type},
                 $option->{value},
                 process_attrs( $option->{attributes} ),

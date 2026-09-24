@@ -36,10 +36,13 @@ sub _string_field {
 
     # textarea_tag template
 
-    my $html = sprintf qq{<textarea name="%s"%s>},
-        $render->{nested_name},
-        process_attrs( $render->{attributes} ),
-        ;
+    my $html = "<textarea";
+
+    if ( defined $render->{nested_name} ) {
+        $html .= sprintf qq{ name="%s"}, $render->{nested_name};
+    }
+
+    $html .= sprintf "%s>", process_attrs( $render->{attributes} );
 
     if ( defined $render->{value} ) {
         $html .= $render->{value};
